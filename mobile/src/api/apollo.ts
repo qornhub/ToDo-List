@@ -4,7 +4,7 @@ import { SetContextLink } from "@apollo/client/link/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const httpLink = new HttpLink({
-  uri: "http://192.168.0.124:4000/",
+  uri: "https://switching-loud-accept-renaissance.trycloudflare.com/",
 });
 
 const authLink = new SetContextLink(async () => {

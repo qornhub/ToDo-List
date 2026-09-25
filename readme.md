@@ -1,4 +1,4 @@
-# Technical Test - Todo Application
+# To do list Application
 
 A full-stack Todo application consisting of a React Native mobile app, React web app, and Node.js GraphQL backend.
 
@@ -420,17 +420,6 @@ The authentication system uses a simple token-based approach because the technic
 
 The implementation is intentionally lightweight.
 
-For a production application, the following would be added:
-
-- Password hashing
-- Secure authentication tokens
-- Token expiration
-- Refresh tokens where appropriate
-- Persistent user storage
-- Input validation
-- Rate limiting
-- More comprehensive authorization
-
 ---
 
 ## Mobile
@@ -689,21 +678,6 @@ For local development, this can be changed to the appropriate local backend addr
 
 This project is designed as a technical-test implementation rather than a production-ready authentication system.
 
-The following areas would require additional work for production:
-
-- Password hashing
-- Secure token generation
-- Token expiration
-- Persistent database storage
-- HTTPS configuration with a permanent domain
-- Input validation
-- Error handling
-- Rate limiting
-- Production logging
-- Secrets management
-- Proper authentication and authorization
-- Database backups
-
 The current authentication and in-memory storage are intentionally simplified to satisfy the technical-test requirements.
 
 ---
@@ -712,10 +686,10 @@ The current authentication and in-memory storage are intentionally simplified to
 
 | Module | Time Taken |
 |---|---:|
-| Backend | 30 minutes |
+| Backend | 1 hour |
 | Mobile | 1 hour |
 | Web | 1 hour |
-| **Total** | **2 hours 30 minutes** |
+| **Total** | **3 hours** |
 
 Cloud deployment was completed as an additional deployment step using AWS EC2, PM2, and Cloudflare.
 

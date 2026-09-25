@@ -1,348 +1,138 @@
-# Technical Test – Full Stack Application
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   Technical Test - Todo Application  A full-stack Todo application consisting of a React Native mobile app, React web app, and Node.js GraphQL backend.  ## Project Structure  ```text  tech-test/  ├── backend/    # Node.js + Apollo GraphQL  ├── mobile/     # React Native + Expo  ├── web/        # React + Vite + Tailwind CSS  └── README.md   `
 
-A simple full-stack To-Do application built as part of a technical assessment.
+1\. Setup Instructions
+----------------------
 
-The project consists of:
+### Prerequisites
 
-- Mobile App – React Native + Expo
-- Backend API – Node.js + GraphQL + Apollo Server
-- Web App – React + Vercel *(to be implemented)*
+*   Node.js
+    
+*   npm
+    
+*   Expo Go (for testing the mobile application)
+    
+*   Git
+    
 
-## Architecture
+### Backend
 
-```text
-                    ┌─────────────────────┐
-                    │   React Native      │
-                    │   Expo Mobile App   │
-                    └──────────┬──────────┘
-                               │
-                               │ GraphQL
-                               │
-                    ┌──────────▼──────────┐
-                    │    Node.js API      │
-                    │   Apollo Server     │
-                    └──────────┬──────────┘
-                               │
-                         In-Memory Data
-                         ┌─────┴─────┐
-                         │           │
-                      Users        Todos
+Navigate to the backend folder:
 
-The GraphQL backend is hosted separately from the mobile application and provides authentication and user-scoped To-Do operations.
-
-1. Mobile App
-Technology Stack
-React Native
-Expo SDK 57
-TypeScript
-Expo Router
-Apollo Client 4
-GraphQL
-AsyncStorage
-Features
-Authentication
-Login with email and password
-Create a new account
-Dummy token-based authentication
-Authentication token stored locally using AsyncStorage
-Logout functionality
-To-Do Management
-View user's To-Do items
-Create new To-Do items
-Mark To-Do items as completed
-Delete To-Do items
-User-scoped data through the GraphQL API
-Loading and empty states
-Basic error handling
-Client-side Caching
-
-Apollo Client's InMemoryCache is used for client-side GraphQL caching.
-
-This allows data retrieved from the GraphQL API to be cached locally during the application session.
-
-Persistent offline synchronization is not implemented.
-
-mobile/
-├── src/
-│   ├── api/
-│   │   ├── apollo.ts
-│   │   └── operations.ts
-│   │
-│   ├── app/
-│   │   ├── _layout.tsx
-│   │   ├── index.tsx
-│   │   └── todo.tsx
-│   │
-│   ├── screens/
-│   │   └── LoginScreen.tsx
-│   │
-│   ├── components/
-│   ├── constants/
-│   └── hooks/
-│
-├── assets/
-├── app.json
-├── package.json
-└── tsconfig.json
-
-Running the Mobile App
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd backend   `
 
 Install dependencies:
 
-npm install
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm install   `
+
+Start the GraphQL server:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   node src/server.js   `
+
+The GraphQL API will be available at:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   http://localhost:4000/   `
+
+The backend currently uses in-memory storage, so users and todos are reset whenever the server restarts.
+
+### Web
+
+Navigate to the web folder:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd web   `
+
+Install dependencies:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm install   `
+
+Start the development server:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm run dev   `
+
+The web application will be available at the local URL shown by Vite.
+
+The web application connects to the GraphQL backend at:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   http://localhost:4000/   `
+
+### Mobile
+
+Navigate to the mobile folder:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd mobile   `
+
+Install dependencies:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm install   `
 
 Start Expo:
 
-npx expo start
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npx expo start   `
 
-For testing on a physical device, the phone and development computer should be connected to the same network.
+For testing on a physical device, make sure the mobile device and the computer running the backend are connected to the same Wi-Fi network.
 
-The GraphQL API URL is configured in:
+The mobile application's GraphQL API URL is configured in:
 
-src/api/apollo.ts
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   mobile/src/api/apollo.ts   `
 
-Example:
+Update the API address if the backend is running on a different machine or IP address.
 
-const httpLink = new HttpLink({
-  uri: "http://192.168.0.124:4000/",
-});
+2\. Architecture Decisions
+--------------------------
 
-Replace the IP address with the development machine's local IP address when necessary.
+### Overall Architecture
 
-2. Backend API
-Technology Stack
-Node.js
-GraphQL
-Apollo Server
-JavaScript
-In-memory data storage
-Features
-Authentication
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML                  `┌─────────────────────┐                    │   React Native App  │                    │       (Expo)        │                    └──────────┬──────────┘                               │                               │ GraphQL                               │                    ┌──────────▼──────────┐                    │   Node.js Backend   │                    │   Apollo Server     │                    └──────────┬──────────┘                               │                               │                    ┌──────────▼──────────┐                    │   In-Memory Data    │                    │      Storage        │                    └─────────────────────┘                               ▲                               │ GraphQL                               │                    ┌──────────┴──────────┐                    │     React Web       │                    │   Vite + Tailwind   │                    └─────────────────────┘`
 
-The backend provides:
+### Backend
 
-signup
-login
+*   **Node.js + Apollo Server** was used to implement the GraphQL API.
+    
+*   GraphQL provides a single API layer shared by both the mobile and web applications.
+    
+*   The backend implements authentication, user-scoped todo retrieval, and todo CRUD operations.
+    
+*   In-memory arrays were selected for data storage because the technical test allows in-memory storage and it keeps the implementation simple within the available time.
+    
+*   Authentication uses a simple token-based approach suitable for the technical test.
+    
+*   For a production system, persistent database storage, password hashing, and a more robust authentication mechanism would be used.
+    
 
-Authentication is intentionally simplified for the technical assessment.
+### Mobile
 
-A successful login/signup returns a dummy token such as:
+*   **React Native + Expo** was selected for cross-platform mobile development.
+    
+*   **Apollo Client** is used to consume the GraphQL API.
+    
+*   **AsyncStorage** is used to store the authentication token and user information locally.
+    
+*   The application provides login/signup, todo creation, viewing, completion toggling, deletion, and logout.
+    
+*   **Expo Router** is used for screen navigation.
+    
 
-user-1
+### Web
 
-The mobile application stores the token locally and sends it with subsequent GraphQL requests:
+*   **React + Vite** was used for the web application.
+    
+*   **Apollo Client** is used for GraphQL communication.
+    
+*   **Tailwind CSS** is used for styling and responsive UI implementation.
+    
+*   The web application shares the same GraphQL backend as the mobile application.
+    
+*   localStorage is used to maintain the authentication token in the browser.
+    
 
-Authorization: Bearer user-1
-To-Do CRUD
+### API Communication
 
-The API supports:
+Both clients communicate with the same GraphQL backend:
 
-Create Todo
-Read Todos
-Update Todo
-Delete Todo
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   Mobile ──┐           ├── GraphQL / Apollo Server ── Backend  Web ─────┘   `
 
-Todos are associated with a user through:
+This keeps the backend logic and data operations centralized while allowing each client to have its own UI.
 
-userId
+3\. Time Taken
+--------------
 
-The API checks the authenticated user before returning or modifying To-Do items.
-
-GraphQL Operations
-Queries
-todos
-
-Returns To-Do items belonging to the authenticated user.
-
-Mutations
-signup(email, password)
-login(email, password)
-
-createTodo(title)
-
-updateTodo(id, title, completed)
-
-deleteTodo(id)
-Backend Structure
-backend/
-├── server.js
-├── package.json
-└── node_modules/
-Running the Backend
-
-Install dependencies:
-
-npm install
-
-Start the server:
-
-node server.js
-
-The GraphQL server runs on:
-
-http://localhost:4000/
-
-Apollo Sandbox can be used to test the GraphQL API.
-
-3. Data Storage
-
-The current backend uses in-memory arrays:
-
-const users = [];
-const todos = [];
-
-This was chosen because the assessment allows:
-
-In-memory storage
-Simple file-based persistence such as lowdb
-Important limitation
-
-Data is lost when the backend process is restarted.
-
-For example:
-
-Start server
-    ↓
-Create account
-    ↓
-Create todos
-    ↓
-Stop server
-    ↓
-Start server again
-    ↓
-Data is reset
-
-For a production application, a persistent database would be used instead.
-
-4. Authentication Flow
-Mobile App
-    │
-    │ signup / login
-    ▼
-GraphQL API
-    │
-    │ returns token
-    ▼
-AsyncStorage
-    │
-    │ stores token
-    ▼
-Apollo Client
-    │
-    │ Authorization: Bearer <token>
-    ▼
-GraphQL API
-    │
-    ▼
-User-scoped Todos
-
-The authentication implementation is intentionally simplified for the assessment and should not be considered production-grade authentication.
-
-In a production application, passwords would be securely hashed and authentication would use a proper token/session mechanism.
-
-5. User-Scoped Todo Design
-
-Each To-Do item contains:
-
-id
-title
-completed
-userId
-
-When retrieving To-Dos, the backend filters them using the authenticated user's ID.
-
-This prevents one authenticated user from receiving another user's To-Dos through the normal API operations.
-
-6. Design Decisions
-Why GraphQL?
-
-GraphQL allows the mobile and web clients to consume the same API while requesting only the fields they need.
-
-Why Apollo Server?
-
-Apollo Server provides a straightforward way to define the GraphQL schema and resolvers and is suitable for a small Node.js GraphQL API.
-
-Why Apollo Client?
-
-Apollo Client provides:
-
-GraphQL query/mutation handling
-Client-side caching
-Loading and error states
-Integration with React Native
-Why Expo Router?
-
-Expo Router provides file-based navigation for the Expo application and is built on React Navigation.
-
-The current navigation structure is:
-
-Login
-  │
-  ▼
-Todo List
-Why in-memory storage?
-
-The assessment explicitly allows in-memory persistence. It keeps the implementation lightweight and allows the focus to remain on GraphQL integration and application functionality.
-
-7. Current Status
-Mobile
- React Native + Expo setup
- Login
- Signup
- Logout
- GraphQL integration
- Authentication token handling
- View todos
- Create todos
- Update/complete todos
- Delete todos
- Client-side GraphQL cache
- Persistent offline synchronization
-Backend
- Node.js setup
- Apollo Server
- GraphQL schema
- Login
- Signup
- User-scoped authentication
- Create todo
- Read todos
- Update todo
- Delete todo
- In-memory data storage
-Web
- React application
- GraphQL integration
- Login/signup
- To-Do CRUD
- Vercel deployment
-AWS
- Deployment
- Architecture / deployment documentation
-8. Future Improvements
-
-For a production application, the following improvements could be made:
-
-Persistent database such as PostgreSQL
-Password hashing
-JWT or secure session-based authentication
-Input validation
-Persistent offline cache
-Offline mutation queue and synchronization
-Automated tests
-CI/CD pipeline
-HTTPS
-Production monitoring and logging
-9. Notes
-
-This project was developed as a technical assessment demonstrating:
-
-Full-stack development
-React Native application development
-GraphQL API integration
-Apollo Client and Apollo Server
-Authentication flow
-User-scoped data access
-Client-side caching
-API and frontend separation
+ModuleTime TakenBackend30 minutesMobile1 hourWeb1 hour**Total2 hours 30 minutes**
